@@ -42,10 +42,10 @@ fi
 
 cp $BSDINSTALL_TMPETC/* $BSDINSTALL_CHROOT/etc
 
-# Copy pfSense loader.conf
+# Copy thingzeye loader.conf
 if [ -f $BSDINSTALL_CHROOT/boot/loader.conf ]; then
 	cp $BSDINSTALL_CHROOT/boot/loader.conf \
-		$BSDINSTALL_TMPBOOT/loader.conf.pfSense
+		$BSDINSTALL_TMPBOOT/loader.conf.thingzeye
 fi
 cat $BSDINSTALL_TMPBOOT/loader.conf.* >> $BSDINSTALL_TMPBOOT/loader.conf
 rm $BSDINSTALL_TMPBOOT/loader.conf.*
@@ -56,12 +56,12 @@ df -t zfs $BSDINSTALL_CHROOT > /dev/null && echo "zfs_load=\"YES\"" >> $BSDINSTA
 
 cp $BSDINSTALL_TMPBOOT/* $BSDINSTALL_CHROOT/boot
 
-if [ -f /tmp/loader.conf.pfSense ]; then
-	cat /tmp/loader.conf.pfSense >> $BSDINSTALL_CHROOT/boot/loader.conf
+if [ -f /tmp/loader.conf.thingzeye ]; then
+	cat /tmp/loader.conf.thingzeye >> $BSDINSTALL_CHROOT/boot/loader.conf
 fi
 
-if [ -f /tmp/loader.conf.local.pfSense ]; then
-	cat /tmp/loader.conf.local.pfSense >> $BSDINSTALL_CHROOT/boot/loader.conf.local
+if [ -f /tmp/loader.conf.local.thingzeye ]; then
+	cat /tmp/loader.conf.local.thingzeye >> $BSDINSTALL_CHROOT/boot/loader.conf.local
 fi
 
 # Detect MBT-* and populate loader.conf.local
@@ -75,7 +75,7 @@ if [ "${product}" = "Minnowboard Turbot D0 PLATFORM" ] || [ "${product}" = "Minn
 fi
 
 # Add default values for hn devices to work with ALTQ
-# See https://redmine.pfsense.org/issues/8954
+# See https://redmine.thingzeye.org/issues/8954
 echo 'hw.hn.vf_transparent="0"' >> $BSDINSTALL_CHROOT/boot/loader.conf
 echo 'hw.hn.use_if_start="1"' >> $BSDINSTALL_CHROOT/boot/loader.conf
 

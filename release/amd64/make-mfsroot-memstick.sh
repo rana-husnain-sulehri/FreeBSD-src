@@ -50,7 +50,7 @@ echo 'mfs_type="mfs_root"' >> ${1}.tmp/boot/loader.conf
 echo 'mfs_name="/mfsroot"' >> ${1}.tmp/boot/loader.conf
 echo 'vfs.root.mountfrom="ufs:/dev/md0"' >> ${1}.tmp/boot/loader.conf
 
-makefs -B little -o label=pfSense_Install ${2}.part ${1}.tmp
+makefs -B little -o label=thingzeye_Install ${2}.part ${1}.tmp
 if [ $? -ne 0 ]; then
 	echo "makefs failed"
 	exit 1

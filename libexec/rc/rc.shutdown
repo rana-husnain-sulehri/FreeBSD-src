@@ -27,9 +27,9 @@
 # $FreeBSD$
 #
 
-# Call pfSense version of this script when it's available
-if [ -f /etc/pfSense-rc.shutdown ]; then
-	. /etc/pfSense-rc.shutdown
+# Call thingzeye version of this script when it's available
+if [ -f /etc/thingzeye-rc.shutdown ]; then
+	. /etc/thingzeye-rc.shutdown
 	exit 0
 fi
 

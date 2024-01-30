@@ -27,7 +27,7 @@ ATF_TESTS_SH+=	anchor \
 		tos
 
 ATF_TESTS_SH+=	\
-	pfsense_match
+	thingzeye_match
 
 ${PACKAGE}FILES+=	utils.subr \
 			echo_inetd.conf \

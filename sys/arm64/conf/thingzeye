@@ -95,7 +95,7 @@ device		cdce
 
 device		uhid		# "Human Interface Devices"
 
-# pfsense addons
+# thingzeye addons
 
 device		xz
 device		gre
